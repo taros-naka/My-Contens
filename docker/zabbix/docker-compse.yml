@@ -1,6 +1,12 @@
+# zabbix docker-compose.yml
+# これはZabbixをPostgreSQLと共にDockerで実行するためのdocker-compose.ymlファイルです
+# PostgreSQLのバージョンは15を使用し、Zabbixのバージョンは7.0を使用しています
+# この構成では、ZabbixサーバーとWebインターフェースがセットアップされます
+
 version: '3.5'
 
 services:
+  # PostgreSQLデータベースのサービス(postgres)を命名します
   postgres:
     image: postgres:15
     environment:
@@ -10,6 +16,7 @@ services:
     volumes:
       - ./zabbix-db:/var/lib/postgresql/data
 
+  # Zabbixサーバーのサービス(zabbix-server)を命名します
   zabbix-server:
     image: zabbix/zabbix-server-pgsql:alpine-7.0-latest
     depends_on:
@@ -21,6 +28,7 @@ services:
     ports:
       - "10051:10051"
 
+  # Zabbix Webインターフェースのサービス(zabbix-web)を命名します
   zabbix-web:
     image: zabbix/zabbix-web-apache-pgsql:alpine-7.0-latest
     depends_on:
