@@ -52,11 +52,11 @@ services:
     hostname: kibana
     restart: always
     ports:
-      - 443:5601
+      - 80:5601
     environment:
       - ELASTICSEARCH_USERNAME=admin
       - ELASTICSEARCH_PASSWORD=admin
-      - SERVER_SSL_ENABLED=true
+      - SERVER_SSL_ENABLED=false
       - SERVER_SSL_CERTIFICATE=/usr/share/kibana/config/opendistroforelasticsearch.example.org.cert
       - SERVER_SSL_KEY=/usr/share/kibana/config/opendistroforelasticsearch.example.org.key
 
