@@ -39,8 +39,6 @@ chown root:root /etc/ssl/private/server.key
 chmod 640 /etc/ssl/private/server.crt
 chown root:www-data /etc/ssl/private/server.crt
 
-
-
 #　apacheのSSLエンジン有効
 a2enmod ssl
 nano /etc/apache2/sites-available/000-default.conf
