@@ -32,6 +32,15 @@ openssl req -new -key server.key -out server.csr
 #　期間を変更　365　1年有効
 openssl x509 -in server.csr -out server.crt -req -signkey server.key -extfile /etc/ssl/openssl.cnf -extensions srv.world -days 365
 
+#　鍵と証明書の適正なアクセス権設定
+chmod 600 /etc/ssl/private/server.key
+chown root:root /etc/ssl/private/server.key
+
+chmod 640 /etc/ssl/private/server.crt
+chown root:www-data /etc/ssl/private/server.crt
+
+
+
 #　apacheのSSLエンジン有効
 a2enmod ssl
 nano /etc/apache2/sites-available/000-default.conf
