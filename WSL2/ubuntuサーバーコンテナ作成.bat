@@ -1,9 +1,0 @@
-@echo off
-SET CONTAINER_FOLDER_NAME=Ubuntu-test-Redmine3
-SET CONTAINER_NAME=Ubuntu-Test3
-SER WSL2_IMAGE=d:\USER\osバックアップ\WSL\ubuntu-24.04lts.rootfs.tar.gz
-wsl --import %CONTAINER_NAME% C:\WSL\%CONTAINER_FOLDER_NAME% %WSL2_IMAGE%%
-
-wsl -d %CONTAINER_NAME%
-
-echo コンテナ %CONTAINER_NAME% が作成され、起動されました。
