@@ -37,7 +37,7 @@ services:
       - ./postgres/db-data:/var/lib/postgresql/data
       - ./postgres/initdb:/docker-entrypoint-initdb.d
     ports:
-      - "5432:5432"
+      - "5432"
     networks:
       - redmine_network
     restart: always
