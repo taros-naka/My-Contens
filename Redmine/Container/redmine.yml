@@ -1,5 +1,8 @@
 version: '3.7'
 
+networks:
+  redmine_network:
+    external: false
 services:
   # Redmine本体
   redmine:
@@ -9,6 +12,8 @@ services:
       - '33000:3000'
     expose:
       - '3000'
+    networks:
+      - redmine_network
     volumes:
       - ./redmine/files:/usr/src/redmine/files
       - ./redmine/log:/usr/src/redmine/log
@@ -33,6 +38,8 @@ services:
       - ./postgres/initdb:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"
+    networks:
+      - redmine_network
     restart: always
     environment:
       POSTGRES_USER: redmine
