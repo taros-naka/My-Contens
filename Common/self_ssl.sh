@@ -1,5 +1,5 @@
 #!/bin/bash
-
+sudo apt install openssl
 # 自己認証（オレオレ証明）を設定
 
 
